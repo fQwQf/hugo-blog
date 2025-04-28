@@ -1,0 +1,74 @@
+# 工作流名称
+name: Deploy Hugo site to GitHub Pages
+
+# 触发条件
+on:
+  # 当代码被推送到 main 分支时触发
+  push:
+    branches:
+      - main  # 改成你的默认分支名，可能是 master
+
+  # 允许你从 GitHub 网站的 Actions 页签手动触发此工作流
+  workflow_dispatch:
+
+# 设置 GITHUB_TOKEN 的权限，允许部署到 GitHub Pages
+permissions:
+  contents: read     # 需要读取仓库内容
+  pages: write      # 需要写入 GitHub Pages
+  id-token: write   # 需要 OpenID Connect (OIDC) 身份验证
+
+# 部署并发控制：只允许一个部署进行，取消排队中但未开始的旧部署
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# 定义一个名为 'build' 的作业 (Job)
+jobs:
+  build:
+    runs-on: ubuntu-latest # 指定运行环境为最新的 Ubuntu
+    env:
+      HUGO_VERSION: 0.131.0
+    steps:
+      # 第一步：检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v4 # 使用官方的 checkout action
+        with:
+          submodules: recursive  # 如果你的主题是 git submodule，必须加上这个
+          fetch-depth: 0         # 获取所有 git 历史，Hugo 生成 lastmod 等信息需要
+
+      # 第二步：设置 Hugo 环境
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2 # 使用流行的设置 Hugo action
+        with:
+          hugo-version: '${{ env.HUGO_VERSION }}' # 使用上面定义的环境变量
+          # extended: true # 如果你的 Hugo 主题或配置需要 SASS/SCSS 支持，取消这一行的注释
+
+      # 第三步：构建 Hugo 站点
+      - name: Build with Hugo
+        run: hugo --minify # 运行 hugo 命令构建站点，--minify 是可选的压缩优化
+
+      # 第四步：准备 GitHub Pages 环境
+      - name: Setup Pages
+        id: pages # 给这个步骤一个 ID，后面会用到
+        uses: actions/configure-pages@v4 # 配置 GitHub Pages
+
+      # 第五步：上传构建产物 (Artifact)
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3 # 将构建结果上传为 artifact
+        with:
+          # 从 Hugo 默认的输出目录 'public' 上传
+          path: './public'
+
+  # 定义一个名为 'deploy' 的作业，它依赖于 'build' 作业
+  deploy:
+    needs: build # 确保 'build' 作业成功完成后再运行 'deploy'
+    runs-on: ubuntu-latest # 指定运行环境
+    environment:
+      name: github-pages # 指定部署环境的名称
+      url: ${{ steps.deployment.outputs.page_url }} # 从部署步骤获取最终的网站 URL
+
+    steps:
+      # 第六步：部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment # 给这个步骤一个 ID
+        uses: actions/deploy-pages@v4 # 使用官方的部署 action
