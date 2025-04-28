@@ -1,7 +1,7 @@
 # Configure main menu and social menu
 #[[main]]
-#identifier = "home"
-#name = "Home"
+#identifier = "主页"
+#name = "主页"
 #url = "/"
 #[main.params]
 #icon = "home"
@@ -10,15 +10,7 @@
 [[social]]
 identifier = "github"
 name = "GitHub"
-url = "https://github.com/CaiJimmy/hugo-theme-stack"
+url = "https://github.com/fQwQf"
 
 [social.params]
 icon = "brand-github"
-
-[[social]]
-identifier = "twitter"
-name = "Twitter"
-url = "https://twitter.com"
-
-[social.params]
-icon = "brand-twitter"
