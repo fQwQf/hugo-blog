@@ -41,7 +41,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2 # 使用流行的设置 Hugo action
         with:
           hugo-version: '${{ env.HUGO_VERSION }}' # 使用上面定义的环境变量
-          # extended: true # 如果你的 Hugo 主题或配置需要 SASS/SCSS 支持，取消这一行的注释
+          extended: true 
 
       # 第三步：构建 Hugo 站点
       - name: Build with Hugo
