@@ -6,7 +6,7 @@ on:
   # 当代码被推送到 main 分支时触发
   push:
     branches:
-      - main  # 改成你的默认分支名，可能是 master
+      - master
 
   # 允许你从 GitHub 网站的 Actions 页签手动触发此工作流
   workflow_dispatch:
