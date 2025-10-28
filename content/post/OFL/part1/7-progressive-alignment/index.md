@@ -1,7 +1,8 @@
 ---
 title: DHCL + Progressive Alignment
 description: 参考之前的 lambda 退火，我们不再要求本地模型一步到位地对齐最终的ETF锚点，而是让对齐目标从一个容易的初始状态，平滑地、渐进地过渡到完美的最终状态。
-date: 2025-09-27 16:24:25+0800
+date: 2025-09-30 16:24:25+0800
+image: 578322.jpg
 categories:
     - 
 tags:

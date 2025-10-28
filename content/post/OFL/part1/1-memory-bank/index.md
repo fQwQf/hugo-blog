@@ -2,6 +2,7 @@
 title: memory bank
 description: 对于 memory bank 进行了实验，提供了三组实验数据，分别对应 `alpha=0.5`、`alpha=0.3` 和 `alpha=0.05` 三种不同的非独立同分布 (Non-IID) 程度，每组又包含了是否使用内存库 (Memory Bank) 的对比实验。
 date: 2025-09-22 15:24:25+0800
+image: 000070.jpg
 categories:
     - 
 tags:

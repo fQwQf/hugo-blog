@@ -2,6 +2,7 @@
 title: public feature bank 2
 description: 既然直接的`loss`相加是行不通的，那么可以解耦（Decouple） 这两个相互冲突的目标。参考 pre-train + fine-tune ，我们不再让模型同时学习两个冲突的目标，而是分步进行。
 date: 2025-09-24 15:24:25+0800
+image: 011036.jpg
 categories:
     - 
 tags:

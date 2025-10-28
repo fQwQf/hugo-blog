@@ -2,6 +2,7 @@
 title: DHCL + Lambda Annealing
 description: 显然“全局一致”和“本地适应”是一对需要平衡的矛盾。一个固定的 lambda_align 可能在整个训练过程中并非最优。
 date: 2025-09-26 15:24:25+0800
+image: 616104.jpg
 categories:
     - 
 tags:

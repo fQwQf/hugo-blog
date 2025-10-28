@@ -2,6 +2,7 @@
 title: DHCL + ETF
 description: 既然一个完美训练好的模型的分类器权重（原型）最终会自发形成ETF结构，可以直接创建一个ETF作为固定的锚点，让所有客户端从一开始就向其对其。  
 date: 2025-09-27 15:24:25+0800
+image: 245922.jpg
 categories:
     - 
 tags:

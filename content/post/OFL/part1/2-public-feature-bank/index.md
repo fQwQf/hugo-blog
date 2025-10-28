@@ -2,6 +2,7 @@
 title: public feature bank
 description: 在这个实验中，服务器将扮演一个“教师”的角色，在联邦学习开始前，利用 public_set 的一部分短暂地训练一个模型。这个模型的唯一目的就是学习 public_set 的基本特征分布，然后用它来生成真正有意义的、源于内部数据的公共特征库。
 date: 2025-09-23 15:24:25+0800
+image: 013731.jpg
 categories:
     - 
 tags:

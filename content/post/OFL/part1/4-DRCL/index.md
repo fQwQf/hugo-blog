@@ -2,6 +2,7 @@
 title: DRCL
 description: 实验结果初步验证了我们的假设：在高度数据异构 (Non-IID) 的场景下，通过 DRCL 强制进行全局对齐 (`OursV5`)，相比原始的FAFI (`OursV4`)，能够带来模型一致性的显著提升和最终性能的微小改进。
 date: 2025-09-25 15:24:25+0800
+image: 075901.jpg
 categories:
     - 
 tags:
